@@ -13,21 +13,21 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- username: root
- password: '123456'
+  username: root
+  password: '123456'
   host: localhost
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: wf_development
+  database: wfp_blog_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: wf_test
+  database: wfp_blog_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: wf_production
-  username: wf
+  database: wfp_blog_production
+  username: wfp_blog
   password: <%= ENV['WF_DATABASE_PASSWORD'] %>
